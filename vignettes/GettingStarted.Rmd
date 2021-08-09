@@ -1,0 +1,53 @@
+---
+title: "GettingStarted"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{GettingStarted}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+```{r setup}
+library(openreviewr)
+library(magrittr)
+```
+
+## Start client
+
+```{r}
+# Username and password can be saved as environment variables (e.g in ~/.bashrc in a linux OS)
+# if using rstudio in a linux OS, starting rstudio from a bash shell might be necessary.
+username = Sys.getenv("OPENREVIEW_USERNAME")
+password = Sys.getenv("OPENREVIEW_PASSWORD")
+client = getClient(username = username, password = password)
+```
+
+## Get invitations
+
+Examples from: https://openreview-py.readthedocs.io/en/latest/getting_data.html#notes
+
+Using the client object:
+
+```{r}
+invitations <- client$get_invitations(regex = "ICLR.cc/2019/Conference/.*") %>% 
+  vapply(., function(x) x$id, character(1))
+head(invitations)
+```
+
+Wrapper functions:
+
+```{r}
+# Currently, only gets the first 1000
+invitations_2 <-  getInvitationId(client = client, regex = 'ICLR.cc/2019/Conference/.*')
+head(invitations_2)
+```
+
