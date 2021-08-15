@@ -36,7 +36,8 @@ getClient <- function(username, password) {
     startClient <- basilisk::basiliskRun(proc, function(arg1, arg2) {
 
         openreview <- reticulate::import("openreview")
-        output <- openreview$Client(username = arg1, password = arg2)
+        output <- openreview$Client(baseurl = "https://api.openreview.net",
+                                    username = arg1, password = arg2)
         output
     }, arg1 = username, arg2 = password)
     startClient
