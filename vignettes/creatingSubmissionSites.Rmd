@@ -1,0 +1,121 @@
+---
+title: "Creating new submission sites on OpenReview with Python"
+author: "Jennifer Wokaty"
+output:
+  BiocStyle::html_document:
+    self_contained: yes
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    code_folding: show
+date: "`r doc_date()`"
+package: "`r pkg_ver('openreviewr')`"
+vignette: >
+  %\VignetteIndexEntry{OpenReviewR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+# Creating OpenReview Conference Submission Sites
+
+To create a new submission site at OpenReview.net, you can use the Python
+script `/inst/scripts/create_conference.py`. You must have admin privileges
+to use the OpenReview API to create groups.
+
+## Git clone openreviewr
+
+```{bash, include = FALSE}
+git clone git@github.com:waldronlab/openreviewr.git
+```
+
+## Install a virtual environment (Optional)
+
+Note: You can skip this step and use your installation of Python 3 directly.
+
+On Linux
+
+```{python, include = FALSE}
+python3 -m venv path/to/env
+```
+
+On Windows
+
+```{python, include = FALSE}
+c:\>c:\Python35\python -m venv c:\path\to\env 
+```
+
+### Activate environment
+
+To activate your virtual environment, where your environment's name is `env`:
+
+```{python, include = FALSE}
+source env/bin/activate
+```
+
+## PIP install openreview-py and configparser
+
+On Linux
+
+```{python, include = FALSE}
+python3 -m pip install openreview-py configparser
+```
+
+On Windows
+
+```{python, include = FALSE}
+c:\>c:\Python35\python -m pip install openreview-py configparser
+```
+
+## Create a configuration .ini file
+
+Copy `inst/script/example.ini` to `inst/script/config.ini` and edit `config.ini`
+for your conference.
+
+## Create a conference_template.js file
+
+Copy `inst/script/webfield_template.js` to `inst/script/webfield.js` and edit
+the path in the `.ini` for your conference. In the `.ini` file, the field
+`Number` corresponds to `6` in `n6` below.
+
+You should edit the following lines:
+
+```{javascript, include = FALSE}
+// webfield_template
+// Remove line above if you don't want this page to be overwriten
+
+// ------------------------------------
+// Venue homepage template
+//
+// This webfield displays the conference header (#header), the submit button (#invitation),
+// and a tabbed interface for viewing various types of notes.
+// ------------------------------------
+
+// Constants
+var CONFERENCE_ID = 'Microbiome-VIF.org/n6';
+var PARENT_GROUP_ID = 'Microbiome-VIF.org/n6';
+var SUBMISSION_ID = 'Microbiome-VIF.org/n6/-/Submission';
+var BLIND_SUBMISSION_ID = 'Microbiome-VIF.org/n6/-/Submission';
+var WITHDRAWN_SUBMISSION_ID = 'Microbiome-VIF.org/n6/-/Withdrawn_Submission';
+var DESK_REJECTED_SUBMISSION_ID = 'Microbiome-VIF.org/n6/-/Desk_Rejected_Submission';
+var REVIEWERS_NAME = 'Reviewers';
+var AREA_CHAIRS_NAME = 'Area_Chairs';
+var AREA_CHAIRS_ID = 'Microbiome-VIF.org/n6/Area_Chairs';
+var REVIEWERS_ID = 'Microbiome-VIF.org/n6/Reviewers';
+var PROGRAM_CHAIRS_ID = 'Microbiome-VIF.org/n6/Program_Chairs';
+var AUTHORS_ID = 'Microbiome-VIF.org/n6/Authors';
+var HEADER = {"title": "Microbiome Virtual International Forum (n. 6, Atlantic-first)", "subtitle": "Microbiome-VIF (n.6)", "location": "Virtual", "date": "Jan 11 2022", "website": "https://microbiome-vif.org/", "instructions": "", "deadline": "Submission Start: Nov 09 2021 08:00PM UTC-0, End: Dec 10 2021 08:00PM UTC-0", "contact": "contact@microbiome-vif.org"};
+```
+
+## Run create_conference.py
+
+In the following example, a virtual environment called `env` has been sourced
+and the user's email and password in OpenReview.net followed by the path to
+the customized `.ini` file follow as arguments to the script:
+
+```{python, include = FALSE}
+(env) $ python create_conference g.hopper1906@gmail.com my+Password config.ini
+```
+
+The email and password must be associated with the OpenReview account. If the
+configuration file has invalid entries, the script will attempt to report the
+issue and fail to create the conference.
