@@ -45,6 +45,7 @@ class PostRequestFormNote:
 
     def create_note(self) -> openreview.Note:
         """Create an openreview.Note"""
+
         invitation = 'OpenReview.net/Support/-/Request_Form'
         readers = ['OpenReview.net/Support'] + self.signatures + \
             self.config['program_chair_emails']
