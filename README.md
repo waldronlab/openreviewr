@@ -69,9 +69,7 @@ to reflect the correct registration link on Hopin.
 To run the script, you must use the email associated with your account in
 OpenReview, your password, and the path to your `config.ini`.
 
-    ```
     python3 post_request_form_note.py your.email@gmail.com your_password path/to/config.ini
-    ```
 
 When submission is successful, it returns the form note. You will also be able
 to view it on OpenReview and receive an email that your request has been

@@ -26,13 +26,13 @@
   "preferred_saluation": {
     "order": 12,
     "description": "Preferred salutation that you should be introduced as, including your full name following the salutation (e.g., Mr. Washington, Professor Curie). Guidance on correct pronunciation welcomed.",
-    "value-radio": ".{1,1000}",
+    "value-regex": ".{1,1000}",
     "required": true
   },
   "preferred_pronouns": {
     "order": 13,
     "description": "Preferred pronouns",
-    "value-radio": ".{1,1000}",
+    "value-regex": ".{1,1000}",
     "required": true
   },
   "career_stage": {
