@@ -104,13 +104,6 @@ class ORUtils:
                 print(f'{field} must be a valid email')
                 return {}
 
-        if not os.path.isfile(cp['ADDITIONAL SUBMISSION OPTIONS']['Path']):
-            print(f"{cp['ADDITIONAL SUBMISSION OPTIONS']['Path']} was not found.")
-            return {}
-        else:
-            with open(cp['ADDITIONAL SUBMISSION OPTIONS']['Path'], 'r') as f:
-                additional_submission_options = json.load(f)
-
         boolean_fields = \
             [f for f in optional_fields if orf.FIELDS[f]['type'] == bool]
 
@@ -175,7 +168,6 @@ class ORUtils:
             'submission_name': 'Submission',
             'venue_id': ORUtils.venue_id(cp['REQUIRED']['Abbreviated Venue Name'],
                                          cp['REQUIRED']['Venue Start Date']),
-            #'Additional Submission Options': additional_submission_options,
             'signatures': email_dict['Signatures']
             }
         return {k:v for k, v in config.items() if v != ''}
