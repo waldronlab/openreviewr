@@ -74,3 +74,6 @@ OpenReview, your password, and the path to your `config.ini`.
 When submission is successful, it returns the form note. You will also be able
 to view it on OpenReview and receive an email that your request has been
 received.
+
+You can also use the `--print` flag to check the contents of the configuration that
+will be submitted to OpenReview.
