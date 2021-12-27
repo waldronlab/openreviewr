@@ -73,7 +73,7 @@ received.
 You can also use the `--print` flag to check the contents of the configuration
 that will be submitted to OpenReview.
 
-### Create the additional submission options JSON file
+### Create the Additional Submission Options JSON File
 
 Using `inst/scripts/pacific_first_additional_submission_options.json` or the
 `atlantic_first_additional_submission_options.json` file, create your additional
