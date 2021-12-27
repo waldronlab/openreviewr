@@ -74,13 +74,16 @@ if __name__ == '__main__':
                         help='User password in OpenReview.net')
     parser.add_argument('config', nargs=1, type=str, default='',
                         help='Path to the configuration .ini file.')
+    parser.add_argument('--print', dest='print', action='store_true',
+                        help='Print the configuration.')
     args = parser.parse_args()
     prfn = PostRequestFormNote(args.email.pop(),
                                args.password.pop(),
                                args.config.pop()) 
 
-    if prfn.valid():
+    if prfn.valid() and args.print:
+        print(prfn.config)
+    elif prfn.valid() and not args.print:
         print(prfn.post_request_form_note())
-        #print(prfn.config)
     else:
         print('Invalid note. Check that your template files are valid.')
