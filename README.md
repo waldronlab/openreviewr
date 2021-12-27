@@ -57,13 +57,6 @@ programmatically with `inst/scripts/post_request_form_note.py`.
 Using `inst/scripts/example.ini`, create a `config.ini` and enter the
 configurations associated with your venue.
 
-### Create the additional submission options JSON file
-
-Using `inst/scripts/pacific_first_additional_submission_options.json` or the
-`atlantic_first_additional_submission_options.json` file, create your additional
-submission options file. Note: You must change the registration URL in the JSON
-to reflect the correct registration link on Hopin.
-
 ### Run the script
 
 To run the script, you must use the email associated with your account in
@@ -75,5 +68,22 @@ When submission is successful, it returns the form note. You will also be able
 to view it on OpenReview and receive an email that your request has been
 received.
 
-You can also use the `--print` flag to check the contents of the configuration that
-will be submitted to OpenReview.
+#### Review the Configuration Produced From Running the Script
+
+You can also use the `--print` flag to check the contents of the configuration
+that will be submitted to OpenReview.
+
+### Create the additional submission options JSON file
+
+Using `inst/scripts/pacific_first_additional_submission_options.json` or the
+`atlantic_first_additional_submission_options.json` file, create your additional
+submission options file. Note: You must change the registration URL in the JSON
+to reflect the correct registration link on Hopin.
+
+### Complete Your Venue Configuration
+
+You can only add *Additional Submission Options* to your venue after OpenReview
+has created it. Find your venue on OpenReview and paste your JSON file into
+the *Additional Submission Options* field. You may want to use a JSON validator
+to check that you're submitting valid JSON; otherwise, your options will not
+display correctly.
