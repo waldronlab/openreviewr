@@ -63,6 +63,8 @@ class ORUtils:
 
         required_fields = orf.required()
         optional_fields = [f for f in orf.optional() if cp['OPTIONAL'][f] != '']
+        multiple_fields = orf.multiple()
+        single_and_multiple_fields = orf.single() + multiple_fields
 
         for field in required_fields:
             if cp['REQUIRED'][field] == '':
@@ -120,20 +122,13 @@ class ORUtils:
             else:
                 response[field] = orf.get_value(field, cp['OPTIONAL'][field])
 
-        for field in orf.single():
+        for field in single_and_multiple_fields:
             section = 'REQUIRED' if field in required_fields else 'OPTIONAL'
             if cp[section][field] != '' and \
                 not orf.are_valid(field, cp[section][field]):
                 print(f'{cp[section][field]} is not valid for {field}.')
                 return {}
-
-        for field in orf.multiple():
-            section = 'REQUIRED' if field in required_fields else 'OPTIONAL'
-            if cp['OPTIONAL'][field] != '' and \
-                not orf.are_valid(field, cp['OPTIONAL'][field]):
-                print(f"{cp['OPTIONAL'][field]} is not valid for {field}.")
-                return {field: cp['OPTIONAL'][field]}
-            else:
+            elif field in multiple_fields:
                 response[field] = ORUtils.to_list(cp[section][field])
 
         # The following keys match the representation in the OpenReview API
