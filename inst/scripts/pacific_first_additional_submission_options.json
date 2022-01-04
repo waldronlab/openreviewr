@@ -23,7 +23,7 @@
     "description": "Contact email address",
     "required": true
   },
-  "preferred_saluation": {
+  "preferred_salutation": {
     "order": 12,
     "description": "Preferred salutation that you should be introduced as, including your full name following the salutation (e.g., Mr. Washington, Professor Curie). Guidance on correct pronunciation welcomed.",
     "value-regex": ".{1,1000}",
