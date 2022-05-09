@@ -145,6 +145,7 @@ class ORUtils:
             'Author and Reviewer Anonymity': cp['REQUIRED']['Author And Reviewer Anonymity'],
             'reviewer_identity': response['Reviewer Identity'],
             'Open Reviewing Policy': cp['REQUIRED']['Open Reviewing Policy'],
+            'submission_readers': cp['REQUIRED']['Submission Readers'],
             'submissions_visibility': response['Submissions Visibility'],
             'withdrawn_submissions_visibility':
                  response['Withdrawn Submissions Visibility'],

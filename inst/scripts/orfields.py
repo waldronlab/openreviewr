@@ -116,6 +116,16 @@ class ORFields:
                 'False': 'No, our venue does not have Senior Area Chairs'
             }
         },
+        'Submission Readers': {
+            'required': True,
+            'type': 'single',
+            'values': [
+                'All program committee (all reviewers, all area chairs, all senior area chairs if applicable)',
+                'Assigned program committee (assigned reviewers, assigned area chairs, assigned senior area chairs if applicable)',
+                'Program chairs and paper authors only',
+                'Everyone (submissions are public)'
+            ]
+        },
         'Submissions Visibility': {
             'required': False,
             'type': bool,
