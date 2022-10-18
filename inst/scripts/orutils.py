@@ -167,8 +167,7 @@ class ORUtils:
             'area_chair_identity': ['Program Chairs'],
             'senior_area_chair_identity': ['Program Chairs'],
             'submission_name': 'Submission',
-            'venue_id': ORUtils.venue_id(cp['REQUIRED']['Abbreviated Venue Name'],
-                                         cp['REQUIRED']['Venue Start Date']),
+            'venue_id': '',
             'signatures': email_dict['Signatures']
             }
         return {k:v for k, v in config.items() if v != ''}
