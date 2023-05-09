@@ -1,4 +1,5 @@
-{ "abstract": {
+{
+  "abstract": {
     "value": {
       "param": {
         "type": "string",
