@@ -1,142 +1,228 @@
 {
   "abstract": {
+    "value": {
+      "param": {
+        "type": "string",
+        "input": "textarea",
+        "scroll": true,
+        "maxLength": 2500
+      }
+    },
     "description": "Abstract of paper (maximum 2500 characters). Add TeX formulas using the following formats: $In−lineFormula$ or $$BlockFormula$$",
-    "order": 8,
-    "value-regex": ".{1,2500}",
-    "required": true
+    "order": 8
   },
   "presenting_author": {
-    "order": 9,
-    "value-regex": ".{1,1000}",
+    "value": {
+      "param": {
+        "type": "string",
+        "maxLength": 1000
+      }
+    },
     "description": "Name of presenting author. The presenting author should be the one submitting this form.",
-    "required": true
+    "order": 9
   },
   "affiliation": {
-    "order": 10,
-    "value-regex": ".{1,1000}",
+    "value": {
+      "param": {
+        "type": "string",
+        "maxLength": 1000
+      }
+    },
     "description": "The following questions refer to the presenting author, who is assumed to be the one submitting this form. Enter any institutional affiliation(s).",
-    "required": true
+    "order": 10
   },
   "contact_email": {
-    "order": 11,
-    "value-regex": ".{1,1000}",
+    "value": {
+      "param": {
+        "type": "string",
+        "maxLength": 1000
+      }
+    },
     "description": "Contact email address",
-    "required": true
+    "order": 11
   },
   "preferred_salutation": {
-    "order": 12,
+    "value": {
+      "param": {
+        "type": "string",
+        "maxLength": 1000
+      }
+    },
     "description": "Preferred salutation that you should be introduced as, including your full name following the salutation (e.g., Mr. Washington, Professor Curie). Guidance on correct pronunciation welcomed.",
-    "value-regex": ".{1,1000}",
-    "required": true
+    "order": 12
   },
   "preferred_pronouns": {
-    "order": 13,
+    "value": {
+      "param": {
+        "type": "string",
+        "maxLength": 1000
+      }
+    },
     "description": "Preferred pronouns",
-    "value-regex": ".{1,1000}",
-    "required": true
+    "order": 13
   },
   "career_stage": {
-    "order": 14,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "tenured faculty",
+          "untenured faculty",
+          "staff scientist",
+          "post-doctoral fellow",
+          "student",
+          "other"
+        ],
+        "input": "radio"
+      }
+    },
     "description": "career stage",
-    "value-radio": [
-      "tenured faculty",
-      "untenured faculty",
-      "staff scientist",
-      "post-doctoral fellow",
-      "student",
-      "other"
-    ],
-    "required": true
+    "order": 14
   },
   "continent": {
-    "order": 15,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "Africa",
+          "Asia",
+          "Central and South America",
+          "Europe",
+          "North America",
+          "Oceania"
+        ],
+        "input": "radio"
+      }
+    },
     "description": "In which continent do you live?",
-    "value-radio": [
-      "Africa",
-      "Asia",
-      "Central and South America",
-      "Europe",
-      "North America",
-      "Oceania"
-    ],
-    "required": true
+    "order": 15
   },
   "submission_type": {
-    "order": 16,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "Selected talk only",
+          "Research highlight only",
+          "Research highlight if not selected for a talk",
+          "Open-access paper highlight"
+        ],
+        "input": "radio"
+      }
+    },
     "description": "For which format would you like your abstract to be considered?  See https://www.microbiome-vif.org/submission/ for more information about the formats.",
-    "value-radio": [
-      "Selected talk only",
-      "Research highlight only",
-      "Research highlight if not selected for a talk",
-      "Open-access paper highlight"
-    ],
-    "required": true
+    "order": 16
   },
   "open_access_url": {
-    "order": 17,
-    "value-regex": ".{1,1000}",
+    "value": {
+      "param": {
+        "type": "string",
+        "optional": true
+      }
+    },
     "description": "If you are submitting an open-access paper highlight, you must provide a URL to the peer-reviewed, published manuscript. If you are submitting a talk or research highlight, you may optionally provide a link to a pre-print manuscript for consideration during the microbiome-VIF review process.",
-    "required": false
+    "order": 17
   },
   "atlantic_presence_at_atlantic_first_meeting": {
-    "order": 18,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "I will be present during my presentation and Q&A during the Atlantic time zone session."
+        ],
+        "input": "radio"
+      }
+    },
     "description": "This is an Atlantic time zone-first session (generally starting at 14:00 UTC - http://time.unitarium.com/utc/14). Will you be present yourself during the Atlantic session for your presentation and Q&A? This is required.",
-    "value-radio": [
-      "I will be present during my presentation and Q&A during the Atlantic time zone session."
-    ],
-    "required": true
+    "order": 18
   },
   "pacific_presence_at_atlantic_first_meeting": {
-    "order": 19,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "I will be present or send a representative for the Pacific Q&A session.",
+          "No, neither I nor a representative will be present during the Pacific Q&A session."
+        ],
+        "input": "radio"
+      }
+    },
     "description": "Will you be present or send a representative for Q&A during the Pacific time zone session (generally starting at 01:30 UTC - http://www.timebie.com/std/utc.php?q=13.5)? This is encouraged but not required for Atlantic-first meetings. If you answer no, you will be ineligible for awards.",
-    "value-radio": [
-      "I will be present or send a representative for the Pacific Q&A session.",
-      "No, neither I nor a representative will be present during the Pacific Q&A session."
-    ],
-    "required": true
+    "order": 19
   },
   "submission_is_not_registration": {
-    "order": 20,
-    "description": "Please register at https://hopin.com/events/microbiome-vif-n-6",
-    "value-radio": [
-      "I am aware that this form does not constitute a registration"
-    ],
-    "required": true
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "I am aware that this form does not constitute a registration"
+        ],
+        "input": "radio"
+      }
+    },
+    "description": "Please register at https://hopin.com/events/microbiome-vif-n-21",
+    "order": 20
   },
   "public_availability": {
-    "order": 21,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "I agree"
+        ],
+        "input": "radio"
+      }
+    },
     "description": "Images and content presented at Microbiome-VIF events may be posted publicly and shared through social media unless the presenter asks for it not to be. To avoid confusion, presentations not to be shared should be labeled 'Do Not Share' on each slide.",
-    "value-radio": [
-      "I agree"
-    ],
-    "required": true
+    "order": 21
   },
   "permission": {
-    "order": 22,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "I have permission from all co-authors to submit this abstract"
+        ],
+        "input": "radio"
+      }
+    },
     "description": "I have permission from all co-authors to submit this abstract, understanding that it will be made public on www.microbiome-vif.org if accepted.",
-    "value-radio": [
-      "I have permission from all co-authors to submit this abstract"
-    ],
-    "required": true
+    "order": 22
   },
   "code_of_conduct": {
-    "order": 23,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "I agree"
+        ],
+        "input": "radio"
+      }
+    },
     "description": "I agree to adhere to the Microbiome-VIF Code of Conduct in all participation relating to this meeting. Microbiome-VIF meetings adhere to the Bioconductor Code of Conduct (https://www.bioconductor.org/about/code-of-conduct/). In short, the Code of Conduct supports diversity and inclusivity and a kind and welcoming environment, while prohibiting discrimination, harassment, bullying, mocking, trolling, and disruptive behavior.",
-    "value-radio": [
-      "I agree"
-    ],
-    "required": true
+    "order": 23
   },
   "competing_interests": {
-    "order": 24,
-    "value-regex": ".{1,10000}",
+    "value": {
+      "param": {
+        "type": "string",
+        "input": "textarea",
+        "scroll": true,
+        "maxLength": 10000
+      }
+    },
     "description": "Please disclose any potential conflicts of interest of any author, or state \"No potential competing interest.\" See https://authorservices.taylorandfrancis.com/editorial-policies/competing-interest/ for guidelines.",
-    "required": true
+    "order": 24
   },
   "social_media_or_website": {
-    "order": 25,
-    "value-regex": ".{1,1000}",
+    "value": {
+      "param": {
+        "type": "string",
+        "optional": true,
+        "maxLength": 1000
+      }
+    },
     "description": "Twitter, other social media, or personal website",
-    "required": false
+    "order": 25
   }
 }
