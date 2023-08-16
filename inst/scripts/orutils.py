@@ -141,7 +141,7 @@ class ORUtils:
             'Submission Deadline': cp['OPTIONAL']['Submission Deadline'],
             'Venue Start Date': cp['REQUIRED']['Venue Start Date'],
             'Location': cp['OPTIONAL']['Location'],
-            'Paper Matching': response['Paper Matching'],
+            'submission_reviewer_assignment': cp['REQUIRED']['Submission Reviewer Assignment'],
             'Author and Reviewer Anonymity': cp['REQUIRED']['Author And Reviewer Anonymity'],
             'reviewer_identity': response['Reviewer Identity'],
             'Open Reviewing Policy': cp['REQUIRED']['Open Reviewing Policy'],

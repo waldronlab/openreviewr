@@ -58,7 +58,9 @@ class PostRequestFormNote:
     def post_request_form_note(self) -> bool:
         """Post a request form note to OpenReview"""
 
-        return self.client.post_note(self.create_note())
+        support_request = self.create_note()
+        print(support_request)
+        return self.client.post_note(support_request)
 
     def valid(self) -> bool:
         """Return True if config and client are set"""
