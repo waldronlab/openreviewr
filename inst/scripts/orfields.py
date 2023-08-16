@@ -29,6 +29,14 @@ class ORFields:
             'required': True,
             'type': datetime
         },
+        'Submission Reviewer Assignment': {
+            'required': True,
+            'type': 'single',
+            'values': [
+                'Automatic',
+                'Manual'
+            ]
+        },
         'Author And Reviewer Anonymity': {
             'required': True,
             'type': 'single',
@@ -67,27 +75,45 @@ class ORFields:
             'required': False,
             'type': str
         },
-        'Paper Matching': {
-            'required': False,
-            'type': 'multiple',
-            'values': [
-                'Reviewer Bid Scores',
-                'Reviewer Recommendation Scores',
-                'OpenReview Affinity'
-            ]
-        },
         'Reviewer Identity': {
             'required': False,
             'type': 'multiple',
             'values':[
                 'Program Chairs',
                 'All Senior Area Chairs',
+                'Assigned Senior Area Chair',
                 'All Area Chairs',
                 'Assigned Area Chair',
                 'All Reviewers',
                 'Assigned Reviewers'
             ]
-        }, 
+        },
+        'Area Chair Identity': {
+            'required': False,
+            'type': 'multiple',
+            'values':[
+                'Program Chairs',
+                'All Senior Area Chairs',
+                'Assigned Senior Area Chair',
+                'All Area Chairs',
+                'Assigned Area Chair',
+                'All Reviewers',
+                'Assigned Reviewers'
+            ]
+        },
+        'Senior Area Chair Identity': {
+            'required': False,
+            'type': 'multiple',
+            'values':[
+                'Program Chairs',
+                'All Senior Area Chairs',
+                'Assigned Senior Area Chair',
+                'All Area Chairs',
+                'Assigned Area Chair',
+                'All Reviewers',
+                'Assigned Reviewers'
+            ]
+        },
         'Expected Submissions': {
             'required': False,
             'type': int
